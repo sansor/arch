@@ -88,9 +88,36 @@ In real life this is how it will look,
 
 
 
+#### PsedoCode
 
+```
+public LatLong findLocation(Address address)
+  boolean foundLocation = false;
 
+  boolean errorInFindingLocation = false;
 
+	Set<Location> searchInArea = new HashSet();
+	if(address.buildingName != null){
+		searchInArea.add(findAreas(String buildindName, Type.BuildingNameSearch));
+	}else if(address.pinCode!= null){
+		searchInArea.add(findAreas(String buildindName, Type.PinCodeSearch));
+	}
+  while(!foundLocation && !errorInFindingLocation && searchInArea.isNotEmpty()){
+  		while(searchInArea.hasNext()){
+  				//Match Location
+  				// If Location is not matched, return the last nearby location
+			}
+  }
+}
 
-
+Address {
+	String country;
+  String cityName;
+	String pinCode;
+	String streetname;
+	String area;
+	String buildingName;
+	String houseNumber;
+}
+```
 
